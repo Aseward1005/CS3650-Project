@@ -1,3 +1,4 @@
+public enum Type {TRANSIENT, RECURRING};
 
 public class Task {
 
@@ -5,8 +6,8 @@ public class Task {
     protected int date;
     protected Runtime runtime;
     protected boolean hasAntiTask;
-    public enum type {TRANSIENT, RECURRING}
-
+    protected type;
+    
     Task(String name, int date, Runtime runtime) {
         this.name = name;
         this.date = date;
