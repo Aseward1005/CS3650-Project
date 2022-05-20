@@ -48,7 +48,20 @@ public class FileReader {
             throw new ReadException();
         }
         for(Task task : newTasks){
-            schedule.add(task);
+            try
+            {
+                if (task.checkConflicts(task))
+                    schedule.add(task);
+                else{
+                    System.out.println("Task could not be added, as there was a conflict");
+                    task.showTask();
+                }
+            }
+            catch(IllegalArgumentException iae)
+            {
+                System.out.println(iae.getMessage());
+                task.showTask();
+            }
         }
     }
 }
